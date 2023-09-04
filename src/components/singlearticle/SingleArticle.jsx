@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getArticleById } from "../../utils/api";
 import ArticleBody from "./ArticleBody";
+import ArticleVote from "./ArticleVote";
 import ArticleComment from "./ArticleComment";
 
 export default function SingleArticle() {
@@ -24,12 +25,16 @@ export default function SingleArticle() {
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error...</p>;
+  if (isError)
+    return (
+      <p>Sorry, something went wrong, please refresh the page and try again.</p>
+    );
 
   return (
     <div>
       <ArticleBody article={article} />
-      <ArticleComment id={id} />
+      <ArticleVote votes={article.votes} id={id} />
+      <ArticleComment article={article} id={id} />
     </div>
   );
 }

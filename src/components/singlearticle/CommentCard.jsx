@@ -1,6 +1,6 @@
 export default function CommentCard({ comment }) {
-  const time =
-    comment.created_at.slice(0, 10) + " " + comment.created_at.slice(11, 16);
+  const event = new Date(comment.created_at);
+  const time = event.toUTCString();
 
   return (
     <article className="commentCard">

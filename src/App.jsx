@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Articles from "./components/articles/Articles";
-import SingleArticle from "./components/articles/SingleArticle";
+import SingleArticle from "./components/singlearticle/SingleArticle";
 
 export default function App() {
   return (
