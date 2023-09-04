@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 
 export default function ArticleCard({ articleInfo }) {
-  const time =
-    articleInfo.created_at.slice(0, 10) +
-    " " +
-    articleInfo.created_at.slice(11, 16);
+  const event = new Date(articleInfo.created_at);
+  const time = event.toUTCString();
 
   return (
     <article className="articleCard">

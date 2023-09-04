@@ -21,7 +21,10 @@ export default function Articles() {
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error...</p>;
+  if (isError)
+    return (
+      <p>Sorry, something went wrong, please refresh the page and try again.</p>
+    );
 
   return (
     <section className="articleList">
