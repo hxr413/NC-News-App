@@ -14,7 +14,6 @@ export default function ArticleComment({ article, id }) {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
         setError(true);
         setLoading(false);
       });
