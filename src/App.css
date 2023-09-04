@@ -19,3 +19,11 @@
   width: 400px;
   border-radius: 20px;
 }
+
+.singleArticleBody {
+  margin: 50px;
+}
+
+.singleArticleBody p {
+  text-align: justify;
+}
