@@ -1,3 +1,7 @@
+header h1 {
+  text-align: center;
+}
+
 .articleList {
   display: flex;
   flex-direction: row;
@@ -28,7 +32,8 @@
   margin-bottom: 30px;
 }
 
-.singleArticleBody p {
+.singleArticleBody,
+.commentList p {
   text-align: justify;
 }
 

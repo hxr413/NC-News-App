@@ -23,7 +23,7 @@ export const getCommentsById = (id) => {
 };
 
 export const patchArticleVotes = (id, request) => {
-  return newsApi.patch(`/api/articles/${id}`, request).then((response) => {
+  return newsApi.patch(`articles/${id}`, request).then((response) => {
     return response;
   });
 };
