@@ -1,19 +1,16 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getArticleById } from "../../utils/api";
-import ArticleBody from "./ArticleBody";
-import ArticleComment from "./ArticleComment";
+import { getCommentsById } from "../../utils/api";
+import CommentCard from "./CommentCard";
 
-export default function SingleArticle() {
-  const { id } = useParams();
-  const [article, setArticle] = useState({});
+export default function ArticleComment({ id }) {
+  const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
 
   useEffect(() => {
-    getArticleById(id)
+    getCommentsById(id)
       .then((response) => {
-        setArticle(response);
+        setComments(response);
         setLoading(false);
       })
       .catch((err) => {
@@ -27,9 +24,11 @@ export default function SingleArticle() {
   if (isError) return <p>Error...</p>;
 
   return (
-    <div>
-      <ArticleBody article={article} />
-      <ArticleComment id={id} />
-    </div>
+      <section className="commentList">
+      <h3>Comments</h3>
+        {comments.map((comment) => (
+          <CommentCard key={comment.comment_id} comment={comment} />
+        ))}
+      </section>
   );
 }
