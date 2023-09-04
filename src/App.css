@@ -1,0 +1,21 @@
+.articleList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+.articleCard {
+  background-color: antiquewhite;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  width: 400px;
+  border-radius: 20px;
+}
+
+.articleCard img {
+  width: 400px;
+  border-radius: 20px;
+}
