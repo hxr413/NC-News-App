@@ -1,4 +1,4 @@
-import axios from "axios";
+import { getArticles } from "../../utils/api";
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 
@@ -8,10 +8,9 @@ export default function Articles() {
   const [isError, setError] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("https://nc-news-api-8tl9.onrender.com/api/articles")
-      .then(({ data }) => {
-        setAllArticles(data.articles);
+    getArticles()
+      .then((response) => {
+        setAllArticles(response);
         setLoading(false);
       })
       .catch((err) => {
