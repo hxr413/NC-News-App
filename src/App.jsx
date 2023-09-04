@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Articles from "./components/articles/Articles";
+import SingleArticle from "./components/articles/SingleArticle"
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Articles />} />
+          <Route path="/:id" element={<SingleArticle />} />
         </Routes>
       </main>
     </div>

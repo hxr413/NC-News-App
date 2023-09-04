@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ArticleCard({ articleInfo }) {
   const time =
     articleInfo.created_at.slice(0, 10) +
@@ -18,7 +20,9 @@ export default function ArticleCard({ articleInfo }) {
       <p>
         {articleInfo.comment_count} comments, {articleInfo.votes} votes
       </p>
-      <p>View this article👉</p>
+      <p>
+        <Link to={`/${articleInfo.article_id}`}>View this article</Link>👉
+      </p>
     </article>
   );
 }
