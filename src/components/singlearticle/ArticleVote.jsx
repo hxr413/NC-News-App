@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { patchArticleVotes } from "../../utils/api";
+import { patchVotesById } from "../../utils/api";
 
 export default function ArticleVote({ votes, id }) {
   const [newVotes, setNewVotes] = useState(votes);
@@ -7,7 +7,7 @@ export default function ArticleVote({ votes, id }) {
 
   const countUp = () => {
     setNewVotes((curVotes) => curVotes + 1);
-    patchArticleVotes(id, { inc_votes: 1 }).catch((err) => {
+    patchVotesById(id, { inc_votes: 1 }).catch((err) => {
       setSentMessageCount((curVotes) => curVotes - 1);
       setError("Something went wrong, please try again.");
     });
@@ -15,7 +15,7 @@ export default function ArticleVote({ votes, id }) {
 
   const countDown = () => {
     setNewVotes((curVotes) => curVotes - 1);
-    patchArticleVotes(id, { inc_votes: -1 }).catch((err) => {
+    patchVotesById(id, { inc_votes: -1 }).catch((err) => {
       setSentMessageCount((curVotes) => curVotes + 1);
       setError("Something went wrong, please try again.");
     });

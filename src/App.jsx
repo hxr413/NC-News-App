@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Articles from "./components/articles/Articles";
+import Topic from "./components/articles/Topic";
 import SingleArticle from "./components/singlearticle/SingleArticle";
 
 export default function App() {
@@ -12,7 +13,8 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Articles />} />
-          <Route path="/:id" element={<SingleArticle />} />
+          <Route path="/:topic" element={<Topic />} />
+          <Route path="/articles/:id" element={<SingleArticle />} />
         </Routes>
       </main>
     </div>

@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getArticles } from "../../utils/api";
 import TopicNav from "./TopicNav";
 import ArticleCard from "./ArticleCard";
 
-export default function Articles() {
-  const [allArticles, setAllArticles] = useState([]);
+export default function Topic() {
+  const { topic } = useParams();
+  const [topicArticles, setTopicArticles] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
 
   useEffect(() => {
-    getArticles()
+    getArticles(topic)
       .then((response) => {
-        setAllArticles(response);
+        setTopicArticles(response);
         setLoading(false);
       })
       .catch((err) => {
         setError(true);
         setLoading(false);
       });
-  }, []);
+  }, [topic]);
 
   if (isLoading) return <p>Loading...</p>;
   if (isError)
@@ -28,7 +30,7 @@ export default function Articles() {
     <div>
       <TopicNav />
       <section className="articleList">
-        {allArticles.map((article) => (
+        {topicArticles.map((article) => (
           <ArticleCard key={article.article_id} articleInfo={article} />
         ))}
       </section>

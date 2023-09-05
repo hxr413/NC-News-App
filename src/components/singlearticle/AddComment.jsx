@@ -5,12 +5,25 @@ import { postCommentById } from "../../utils/api";
 export default function AddComment({ id, setComments, setCommentsCount }) {
   const { user } = useContext(UserContext);
   const [comment, setComment] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
   const sendComment = (event) => {
     event.preventDefault();
-    setLoading("Sending the comment, please wait.");
+
+    if (!navigator.onLine) {
+      alert("You are currently offline. Comment cannot be submitted.");
+      return;
+    }
+
+    if (isSubmitting) {
+      setLoading("Submission in progress, please wait.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setLoading("Submitting the comment, please wait.");
 
     const date = new Date();
     const localComment = {
@@ -26,6 +39,8 @@ export default function AddComment({ id, setComments, setCommentsCount }) {
     const commentObj = { username: user, body: comment };
     postCommentById(id, commentObj)
       .then(() => {
+        setComment("");
+        setIsSubmitting(false);
         setLoading("Successfully commented.");
         setTimeout(function () {
           setLoading(null);
