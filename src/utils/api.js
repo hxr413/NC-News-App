@@ -27,3 +27,9 @@ export const patchArticleVotes = (id, request) => {
     return response;
   });
 };
+
+export const postCommentById = (id, request) => {
+  return newsApi.post(`/articles/${id}/comments`, request).then((response) => {
+    return response;
+  });
+};

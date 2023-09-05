@@ -26,7 +26,7 @@ export default function SingleArticle() {
   if (isLoading) return <p>Loading...</p>;
   if (isError)
     return (
-      <p>Sorry, something went wrong, please refresh the page and try again.</p>
+      <p>Something went wrong, please refresh the page and try again.</p>
     );
 
   return (

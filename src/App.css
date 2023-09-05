@@ -25,6 +25,7 @@ header h1 {
 }
 
 .singleArticleBody,
+.commentForm,
 .commentList,
 .votes {
   margin-right: 50px;
@@ -37,6 +38,12 @@ header h1 {
   text-align: justify;
 }
 
+.commentForm input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 5em;
+}
+
 .commentCard {
   border-style: solid;
   margin-top: 20px;
@@ -44,6 +51,6 @@ header h1 {
   padding-right: 20px;
 }
 
-.votes button{
+.votes button {
   margin-right: 10px;
 }
