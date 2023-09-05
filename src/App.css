@@ -24,6 +24,18 @@ header h1 {
   border-radius: 20px;
 }
 
+.selectTopic {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.selectTopic ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .singleArticleBody,
 .commentForm,
 .commentList,
