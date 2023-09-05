@@ -5,11 +5,9 @@ const newsApi = axios.create({
 });
 
 export const getArticles = (topic) => {
-  console.log(topic, "!!!topic");
   return newsApi
     .get("/articles", { params: { topic: topic } })
     .then(({ data }) => {
-      console.log(data, "!!!data");
       return data.articles;
     });
 };

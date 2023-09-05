@@ -24,22 +24,18 @@ export default function SelectTopic() {
     return <p>Something went wrong, please refresh the page and try again.</p>;
 
   return (
-    <p className="selectTopic">
-      Select a topic
-      <span>
-        <ul>
-          {allTopics.map(({ slug }) => {
-            const path = `/${slug}`;
-            return (
-              <Link to={path}>
-                <li key={slug} value={slug}>
-                  {slug}
-                </li>
-              </Link>
-            );
-          })}
-        </ul>
-      </span>
-    </p>
+    <div className="selectTopic">
+      <p>Select a topic</p>
+      <ul>
+        {allTopics.map(({ slug }) => {
+          const path = `/${slug}`;
+          return (
+            <Link to={path} key={slug}>
+              <li value={slug}>{slug}</li>
+            </Link>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
