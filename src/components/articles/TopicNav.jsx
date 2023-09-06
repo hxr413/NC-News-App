@@ -27,6 +27,9 @@ export default function SelectTopic() {
     <div className="selectTopic">
       <p>Select a topic</p>
       <ul>
+        <Link to="/">
+          <li>all</li>
+        </Link>
         {allTopics.map(({ slug }) => {
           const path = `/${slug}`;
           return (
