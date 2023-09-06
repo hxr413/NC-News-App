@@ -31,7 +31,7 @@ export default function SelectTopic() {
           <li>all</li>
         </Link>
         {allTopics.map(({ slug }) => {
-          const path = `/${slug}`;
+          const path = `/topics/${slug}`;
           return (
             <Link to={path} key={slug}>
               <li value={slug}>{slug}</li>
