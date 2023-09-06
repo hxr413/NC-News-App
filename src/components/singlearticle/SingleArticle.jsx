@@ -10,6 +10,7 @@ export default function SingleArticle() {
   const [article, setArticle] = useState({});
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
+  const [errMsg, setErrMsg] = useState(null);
 
   useEffect(() => {
     getArticleById(id)
@@ -19,6 +20,12 @@ export default function SingleArticle() {
       })
       .catch((err) => {
         setError(true);
+        if (err.response.status === 404)
+          setErrMsg("The article you looked for does not exist.");
+        else
+          setErrMsg(
+            "Something went wrong, please refresh the page and try again."
+          );
         setLoading(false);
       });
   }, []);
@@ -26,9 +33,12 @@ export default function SingleArticle() {
   if (isLoading) return <p>Loading...</p>;
   if (isError)
     return (
-      <p>Something went wrong, please refresh the page and try again.</p>
+      <div>
+        <h2>404 - Not Found</h2>
+        <p>{errMsg}</p>
+      </div>
     );
-
+    
   return (
     <div>
       <ArticleBody article={article} />

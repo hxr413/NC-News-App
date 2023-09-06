@@ -12,9 +12,10 @@ export default function Sort({ sort, setSort, order, setOrder }) {
   };
 
   useEffect(() => {
-    if (order === "") navigate(`?sort_by=${sort}`);
-    else if (sort === "") navigate(`?order=${order}`);
-    else navigate(`?sort_by=${sort}&order=${order}`);
+    if (order === "" && sort !== "") navigate(`?sort_by=${sort}`);
+    else if (order !== "" && sort === "") navigate(`?order=${order}`);
+    else if (order !== "" && sort !== "")
+      navigate(`?sort_by=${sort}&order=${order}`);
   }, [sort, order]);
 
   return (
