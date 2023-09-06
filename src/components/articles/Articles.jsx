@@ -14,16 +14,6 @@ export default function Articles() {
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
 
-  /*
-  const [searchParams, setSearchParams] = useSearchParams();
-  const sortByQuery = searchParams.get("sort_by");
-  const orderQuery = searchParams.get("order"); 
-
-  useEffect(() => {
-    getArticlesWithQueries(sortByQuery,orderQuery)
-  }, [sortByQuery, orderQuery]);
-  */
-
   useEffect(() => {
     getArticles({ topic: topic, sort_by: sort, order: order })
       .then((response) => {
@@ -43,7 +33,7 @@ export default function Articles() {
   return (
     <div>
       <TopicNav />
-      <Sort setSort={setSort} setOrder={setOrder} />
+      <Sort sort={sort} setSort={setSort} order={order}setOrder={setOrder} />
       <section className="articleList">
         {allArticles.map((article) => (
           <ArticleCard key={article.article_id} articleInfo={article} />

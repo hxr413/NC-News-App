@@ -29,9 +29,7 @@ export const getCommentsById = (id) => {
 };
 
 export const deleteCommentById = (id) => {
-  return newsApi.delete(`comments/${id}`).then(() => {
-    return;
-  });
+  return newsApi.delete(`comments/${id}`);
 };
 
 export const patchVotesById = (id, request) => {

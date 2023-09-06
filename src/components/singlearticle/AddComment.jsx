@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/User";
 import { postCommentById } from "../../utils/api";
 
-export default function AddComment({ id, setComments, setCommentsCount }) {
+export default function AddComment({ id, setCommentAdded }) {
   const { user } = useContext(UserContext);
   const [comment, setComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,22 +25,12 @@ export default function AddComment({ id, setComments, setCommentsCount }) {
     setIsSubmitting(true);
     setLoading("Submitting the comment, please wait.");
 
-    const date = new Date();
-    const localComment = {
-      author: user,
-      body: comment,
-      votes: 0,
-      comment_id: date.getTime(),
-      created_at: date,
-    };
-    setComments((curComments) => [localComment, ...curComments]);
-    setCommentsCount((curCount) => curCount + 1);
-
     const commentObj = { username: user, body: comment };
     postCommentById(id, commentObj)
       .then(() => {
         setComment("");
         setIsSubmitting(false);
+        setCommentAdded(true);
         setLoading("Successfully commented.");
         setTimeout(function () {
           setLoading(null);
@@ -48,8 +38,6 @@ export default function AddComment({ id, setComments, setCommentsCount }) {
       })
       .catch((err) => {
         setError("Something went wrong, please try again.");
-        setComments((curComments) => curComments.shift());
-        setCommentsCount((curCount) => curCount - 1);
       });
   };
 
