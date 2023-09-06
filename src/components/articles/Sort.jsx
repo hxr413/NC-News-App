@@ -1,23 +1,28 @@
-export default function Sort({ setSort, setOrder }) {
-  const handleSort = (event) => setSort(event.target.value);
-  const handleOrder = (event) => setOrder(event.target.value);
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-  /*
-  <button onClick={() => setSortOrder('asc')}>Ascending</button>
+export default function Sort({ sort, setSort, order, setOrder }) {
+  const navigate = useNavigate();
 
-  const setSortOrder = (direction) => {
-    const newParams = new URLSearchParams(searchParams);
-    newParams.set("order", direction);
-    setSearchParams(newParams);
+  const handleSort = (event) => {
+    setSort(event.target.value);
   };
-  */
+  const handleOrder = (event) => {
+    setOrder(event.target.value);
+  };
+
+  useEffect(() => {
+    if (order === "") navigate(`?sort_by=${sort}`);
+    else if (sort === "") navigate(`?order=${order}`);
+    else navigate(`?sort_by=${sort}&order=${order}`);
+  }, [sort, order]);
 
   return (
     <div className="sortArticles">
       <p>
         Sort by
         <span>
-          <select name="sort" onClick={handleSort}>
+          <select name="sort" onChange={handleSort}>
             <option value="created_at">Date</option>
             <option value="comment_count">Comments</option>
             <option value="votes">Votes</option>
@@ -27,7 +32,7 @@ export default function Sort({ setSort, setOrder }) {
       <p>
         Order by
         <span>
-          <select name="order" onClick={handleOrder}>
+          <select name="order" onChange={handleOrder}>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
