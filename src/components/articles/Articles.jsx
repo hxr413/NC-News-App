@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getArticles } from "../../utils/api";
 import TopicNav from "./TopicNav";
 import Sort from "./Sort";
