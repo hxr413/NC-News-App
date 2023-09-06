@@ -24,7 +24,8 @@ header h1 {
   border-radius: 20px;
 }
 
-.selectTopic {
+.selectTopic,
+.sortArticles {
   margin-right: 50px;
   margin-left: 50px;
 }
