@@ -20,8 +20,8 @@ export default function SingleArticle() {
       })
       .catch((err) => {
         setError(true);
-        if (err.response.status === 404)
-          setErrMsg("The article you looked for does not exist.");
+        if (err.response.data.message === "article does not exist")
+          setErrMsg("404 - The article you looked for does not exist.");
         else
           setErrMsg(
             "Something went wrong, please refresh the page and try again."
@@ -31,14 +31,8 @@ export default function SingleArticle() {
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
-  if (isError)
-    return (
-      <div>
-        <h2>404 - Not Found</h2>
-        <p>{errMsg}</p>
-      </div>
-    );
-    
+  if (isError) return <p>{errMsg}</p>;
+
   return (
     <div>
       <ArticleBody article={article} />

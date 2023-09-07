@@ -13,6 +13,7 @@ export default function Articles() {
 
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
+  const [errMsg, setErrMsg] = useState(null);
 
   useEffect(() => {
     getArticles({ topic: topic, sort_by: sort, order: order })
@@ -21,19 +22,25 @@ export default function Articles() {
         setLoading(false);
       })
       .catch((err) => {
+        console.log(err);
         setError(true);
+        if (err.response.data.message === "topic does not exist")
+          setErrMsg("404 - The topic you looked for does not exist.");
+        else
+          setErrMsg(
+            "Something went wrong, please refresh the page and try again."
+          );
         setLoading(false);
       });
   }, [topic, sort, order]);
 
   if (isLoading) return <p>Loading...</p>;
-  if (isError)
-    return <p>Something went wrong, please refresh the page and try again.</p>;
+  if (isError) return <p>{errMsg}</p>;
 
   return (
     <div>
       <TopicNav />
-      <Sort sort={sort} setSort={setSort} order={order}setOrder={setOrder} />
+      <Sort sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
       <section className="articleList">
         {allArticles.map((article) => (
           <ArticleCard key={article.article_id} articleInfo={article} />
