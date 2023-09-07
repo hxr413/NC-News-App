@@ -1,8 +1,8 @@
 # Northcoders News API
 
-**This repository contains the front-end for a news application.**
+**This repository contains the front-end for a news application, deployed with Netlify.**
 
-### [The hosted version]()
+### [The hosted version](https://nc-news-hxr413.netlify.app/)
 
 ### Description
 This project was developed as part of the Northcoders Software Development Bootcamp course. It leverages key technologies in front-end development, incorporating semantic HTML, responsive CSS, and the React framework. Furthermore, it emphasises on responsive design and optimising user experience (UX), with features such as optimistic rendering and error handling mechanisms.
