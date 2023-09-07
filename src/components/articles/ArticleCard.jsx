@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-button
 export default function ArticleCard({ articleInfo }) {
   const event = new Date(articleInfo.created_at);
   const time = event.toUTCString();
@@ -19,7 +18,10 @@ export default function ArticleCard({ articleInfo }) {
         {articleInfo.comment_count} comments, {articleInfo.votes} votes
       </p>
       <p>
-        <Link to={`/articles/${articleInfo.article_id}`}>View this article</Link>👉
+        <Link to={`/articles/${articleInfo.article_id}`}>
+          View this article
+        </Link>
+        👉
       </p>
     </article>
   );
