@@ -24,21 +24,21 @@ export default function SelectTopic() {
     return <p>Something went wrong, please refresh the page and try again.</p>;
 
   return (
-    <div className="selectTopic">
+    <nav className="selectTopic">
       <p>Select a topic</p>
       <ul>
-        <Link to="/">
-          <li>all</li>
-        </Link>
+        <li>
+          <Link to="/">ALL</Link>
+        </li>
         {allTopics.map(({ slug }) => {
           const path = `/topics/${slug}`;
           return (
-            <Link to={path} key={slug}>
-              <li value={slug}>{slug}</li>
-            </Link>
+            <li key={slug}>
+              <Link to={path}>{slug.toUpperCase()}</Link>
+            </li>
           );
         })}
       </ul>
-    </div>
+    </nav>
   );
 }

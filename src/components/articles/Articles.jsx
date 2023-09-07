@@ -39,8 +39,10 @@ export default function Articles() {
 
   return (
     <div>
-      <TopicNav />
-      <Sort sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
+      <div className="queries">
+        <TopicNav />
+        <Sort sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
+      </div>
       <section className="articleList">
         {allArticles.map((article) => (
           <ArticleCard key={article.article_id} articleInfo={article} />

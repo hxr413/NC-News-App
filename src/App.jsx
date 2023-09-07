@@ -18,6 +18,9 @@ export default function App() {
           <Route path="*" element={<NonExistentPath />} />
         </Routes>
       </main>
+      <footer>
+        <a href="https://github.com/hxr413/NC-News-App/">GitHub repo</a>
+      </footer>
     </div>
   );
 }

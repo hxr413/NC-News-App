@@ -34,7 +34,7 @@ export default function SingleArticle() {
   if (isError) return <p>{errMsg}</p>;
 
   return (
-    <div>
+    <div id="singleArticle">
       <ArticleBody article={article} />
       <ArticleVote votes={article.votes} id={id} />
       <ArticleComment article={article} id={id} />

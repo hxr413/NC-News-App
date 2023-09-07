@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+button
 export default function ArticleCard({ articleInfo }) {
   const event = new Date(articleInfo.created_at);
   const time = event.toUTCString();
@@ -9,10 +9,10 @@ export default function ArticleCard({ articleInfo }) {
       <img src={articleInfo.article_img_url} alt={articleInfo.title} />
       <h3>{articleInfo.title}</h3>
       <p>
-        <b>Author:</b> {articleInfo.author}
+        <strong>Author:</strong> {articleInfo.author}
       </p>
       <p>
-        <b>Topic:</b> {articleInfo.topic}
+        <strong>Topic:</strong> {articleInfo.topic}
       </p>
       <p>Created at {time}</p>
       <p>
