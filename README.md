@@ -5,7 +5,8 @@
 ### [The hosted version]()
 
 ### Description
-This project was developed as part of the Northcoders Software Development Bootcamp course. It leverages key technologies in front-end development, incorporating semantic HTML, responsive CSS, and the React framework. Furthermore, it emphasises on responsive design and optimising user experience (UX), with features such as optimistic rendering and error handling mechanisms.  
+This project was developed as part of the Northcoders Software Development Bootcamp course. It leverages key technologies in front-end development, incorporating semantic HTML, responsive CSS, and the React framework. Furthermore, it emphasises on responsive design and optimising user experience (UX), with features such as optimistic rendering and error handling mechanisms.
+
 **Please be aware that the application's loading time may vary, especially following periods of inactivity, due to potential slowdowns in the backend hosting service.**  
 
 ### Technology & versions used for developemnt
