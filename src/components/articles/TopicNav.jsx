@@ -19,21 +19,21 @@ export default function SelectTopic() {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p className="userMsg">Loading...</p>;
   if (isError)
-    return <p>Something went wrong, please refresh the page and try again.</p>;
+    return <p className="userMsg">Something went wrong, please refresh the page and try again.</p>;
 
   return (
     <nav className="selectTopic">
       <p>Select a topic</p>
       <ul>
-        <li>
+        <li id="topicLink">
           <Link to="/">ALL</Link>
         </li>
         {allTopics.map(({ slug }) => {
           const path = `/topics/${slug}`;
           return (
-            <li key={slug}>
+            <li key={slug} id="topicLink">
               <Link to={path}>{slug.toUpperCase()}</Link>
             </li>
           );

@@ -30,8 +30,8 @@ export default function SingleArticle() {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>{errMsg}</p>;
+  if (isLoading) return <p className="userMsg">Loading...</p>;
+  if (isError) return <p className="userMsg">{errMsg}</p>;
 
   return (
     <div id="singleArticle">

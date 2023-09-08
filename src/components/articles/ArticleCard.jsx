@@ -17,7 +17,7 @@ export default function ArticleCard({ articleInfo }) {
       <p>
         {articleInfo.comment_count} comments, {articleInfo.votes} votes
       </p>
-      <p>
+      <p id="articleLink">
         <Link to={`/articles/${articleInfo.article_id}`}>
           View this article
         </Link>

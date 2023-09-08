@@ -24,9 +24,9 @@ export default function ArticleComment({ article, id }) {
       });
   }, [commentAdded]);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p className="userMsg">Loading...</p>;
   if (isError)
-    return <p>Something went wrong, please refresh the page and try again.</p>;
+    return <p className="userMsg">Something went wrong, please refresh the page and try again.</p>;
 
   return (
     <div>

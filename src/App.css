@@ -10,6 +10,40 @@ footer {
   text-align: center;
 }
 
+header p {
+  margin: 0px;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+  text-align: right;
+}
+
+header h1 {
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+.userMsg {
+  margin-left: 50px;
+}
+
+#articleLink a{
+  color: #35364b;
+}
+
+#articleLink a:visited {
+  color: #35364b;
+}
+
+#topicLink a{
+  color: #35364b;
+  text-decoration: none;
+}
+
+#topicLink a:visited {
+  color: #35364b;
+}
+
 .articleList {
   display: flex;
   flex-direction: row;
@@ -96,10 +130,6 @@ footer {
 
 .sortArticles span select {
   outline-color: #35364b;
-}
-
-.sortArticles span select option {
-  text-align: center;
 }
 
 #singleArticle button {
